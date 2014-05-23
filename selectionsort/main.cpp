@@ -25,7 +25,7 @@ void printArray(int *aArray,int aSize)
 void selectionsort(int *aArray,int aSize)
 {
     int min,i,j;
-    for(i=0;i<aSize;i++)
+    for(i=0;i<aSize-1;i++)
     {
         min=i;
         for(j=i+1;j<aSize;j++)
@@ -41,6 +41,7 @@ void selectionsort(int *aArray,int aSize)
             aArray[i]=aArray[min];
             aArray[min]=tmp;
         }
+        printArray(aArray,aSize);
     }
 }
 
