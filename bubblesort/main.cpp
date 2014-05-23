@@ -24,13 +24,6 @@ void printArray(int *aArray,int aSize)
 
 void bubblesort(int *aArray,int aSize)
 {
-  //2 6 1 3 4 5
-  //2 6 1 3 4 5
-  //2 1 6 3 4 5
-  //1 2 3 6 4 5
-  //1 2 3 4 6 5
-  //1 2 3 4 5 6
-
   int swp;
   for(int i=0;i<aSize-1;i++)
   {
