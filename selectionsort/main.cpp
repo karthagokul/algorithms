@@ -24,6 +24,7 @@ void printArray(int *aArray,int aSize)
 
 void selectionsort(int *aArray,int aSize)
 {
+    cout<<"come";
     int min,i,j;
     for(i=0;i<aSize-1;i++)
     {
@@ -32,8 +33,9 @@ void selectionsort(int *aArray,int aSize)
         {
             if(aArray[min]>aArray[j])
             {
-                j=min;
+                min=j;
             }
+
         }
         if(min!=i)
         {
@@ -41,6 +43,7 @@ void selectionsort(int *aArray,int aSize)
             aArray[i]=aArray[min];
             aArray[min]=tmp;
         }
+
         printArray(aArray,aSize);
     }
 }
