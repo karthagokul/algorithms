@@ -27,7 +27,7 @@ void bubblesort(int *aArray,int aSize)
   int swp;
   for(int i=0;i<aSize-1;i++)
   {
-      for(int j=1;j<aSize;j++)
+      for(int j=1;j<aSize;j++) //after the first pass larget number in the array will get its proper position
       {
           if(aArray[j-1]>aArray[j])
           {
@@ -36,6 +36,7 @@ void bubblesort(int *aArray,int aSize)
               aArray[j]=swp;
           }
       }
+      //printArray(aArray,aSize);
   }
 }
 
@@ -50,12 +51,12 @@ int main()
     array=new int[size];
 
     randomIntGenerator(array,size);
-    cout<<"Original Array"<<endl;
+    cout<<endl<<"Original Array";
     printArray(array,size);
 
     bubblesort(array,size);
 
-    cout<<"Sorted Array"<<endl;
+    cout<<endl<<"Sorted Array";
     printArray(array,size);
 
     delete [] array;
