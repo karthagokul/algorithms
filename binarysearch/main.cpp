@@ -9,7 +9,7 @@
  * 83>85 No StartIndex=MidIndex, StopIndexRemains Same
  * Now Array is 84,85,92
  *  *
- *  Consitions to Consider
+ *  Points to Consider
  *    An Item which is not present in the array
  *    Repetitive Elements in the Array which is sorted
  */
@@ -23,42 +23,42 @@ void print(int a[],int startIndex,int stopIndex)
     std::cout<<std::endl;
 }
 
-int binarySearch(int a[],int aStartIndex,int aStopIndex,int sv)
+int binarySearch(int a[],int aStopIndex,int sv)
 {
-    std::cout<<std::endl<<"Array : ";
-    print(a,aStartIndex,aStopIndex);
-    int index=0;
-    int startIndex=aStartIndex;
+   // int index=0;
+    int startIndex=0;
     int stopIndex=aStopIndex;
-    int midIndex=(startIndex+stopIndex)/2;
-    if(a[midIndex]>sv)
+    while(startIndex<stopIndex)
     {
-        std::cout<<"Picking " << a[midIndex]<< " is > "<<sv;
-        stopIndex=midIndex;
+        std::cout<<std::endl<<"Array : ";
+        print(a,startIndex,aStopIndex);
+
+        int midIndex=(startIndex+stopIndex)/2;
+        if(a[midIndex]>sv)
+        {
+            std::cout<<"Picking " << a[midIndex]<< " is > "<<sv;
+            stopIndex=midIndex;
+        }
+        else if(a[midIndex]==sv)
+        {
+            std::cout<<"Picking " << a[midIndex]<< " is == "<<sv;
+            return midIndex;
+        }
+        else
+        {
+            std::cout<<"Picking " << a[midIndex]<< " is < "<<sv;
+            startIndex=midIndex+1;
+        }
+        std::cout<<" Start Index:"<<startIndex<<",Stop Index:"<<stopIndex;
     }
-    else if(a[midIndex]==sv)
-    {
-        std::cout<<"Picking " << a[midIndex]<< " is == "<<sv;
-        return midIndex;
-    }
-    else
-    {
-        std::cout<<"Picking " << a[midIndex]<< " is < "<<sv;
-        startIndex=midIndex+1;
-    }
-    if(startIndex>=stopIndex)
-    {
-        return -1;
-    }
-    std::cout<<" Start Index:"<<startIndex<<",Stop Index:"<<stopIndex;
-    return binarySearch(a,startIndex,stopIndex,sv);
+    return -1;
 }
 
 int main() {
     int a[]={10,24,32,54,57,78,83,84,85,92};
     const int arraySize=10;
-    const int searchValue=85;
-    int index=binarySearch(a,0,arraySize,searchValue);
+    const int searchValue=100;
+    int index=binarySearch(a,arraySize,searchValue);
     if(index!=-1)
         std::cout<<std::endl<<"The Index of "<<searchValue<<" is "<<index;
     else
