@@ -1,73 +1,42 @@
 #include <iostream>
-#include <stdlib.h>
 
-using namespace std;
-
-void randomIntGenerator(int *aArray,int aSize)
+void printArray(int a[],int start,int stop)
 {
-    srand (time(NULL));
-    for(int i=0;i<aSize;i++)
+    std::cout<<"{ ";
+    for(int i=start;i<stop;i++)
     {
-        aArray[i]=i+(rand()%(aSize*2));
+        std::cout<<a[i]<<",";
     }
+    std::cout<<" }"<<std::endl;
 }
 
-void printArray(int *aArray,int aSize)
-{
-    cout<<endl;
-    for(int i=0;i<aSize;i++)
-    {
-        cout<<aArray[i]<<"\t";
-    }
-    cout<<endl;
-}
+int main() {
+    int a[]={23,42,4,16,8,15};
+    int count=6;
+    printArray(a,0,6);
 
-void selectionsort(int *aArray,int aSize)
-{
-    int min,i,j;
-    for(i=0;i<aSize-1;i++)
+    //selection sort
+
+    //Lets select the first item as the minimum, assumption
+    int minimum,i,j;
+    for( i=0;i<count-1;i++) //go from 0 to the second last
     {
-        min=i;
-        for(j=i+1;j<aSize;j++)
+        minimum=i;
+        for( j=i+1;j<count;j++)//inner loop to start from next item
         {
-            if(aArray[min]>aArray[j])
+            if(a[minimum]>a[j]) //check for small number
             {
-                min=j;
+                minimum=j;
             }
-
         }
-        if(min!=i)
+        if(i!=minimum) //see if minimum got reset then swap
         {
-            int tmp=aArray[i];
-            aArray[i]=aArray[min];
-            aArray[min]=tmp;
+            std::cout<<"Swapped ";
+            int swp=a[minimum];
+            a[minimum]=a[i];
+            a[i]=swp;
         }
-
-        //printArray(aArray,aSize);
+        printArray(a,0,6);
     }
-}
-
-
-int main()
-{
-    int *array=NULL;
-    int size;
-    //cout<<"Enter the number of elements";
-    //cin>>size;
-    size=5;
-    array=new int[size];
-
-    randomIntGenerator(array,size);
-    cout<<endl<<"Original Array";
-    printArray(array,size);
-
-    selectionsort(array,size);
-
-    cout<<endl<<"Sorted Array";
-    printArray(array,size);
-
-    delete [] array;
-    array=NULL;
-
     return 0;
 }
