@@ -1,20 +1,16 @@
 #include "linearsort.h"
 
-LinearSort::LinearSort()
-{
-}
 
 bool LinearSort::sort()
 {
-    for(int i=0;i<count;i++)
+    qDebug()<<"Sorting";
+    for(int i=0;i<m_array->count();i++)
     {
-        for(int j=i;j<count;j++)
+        for(int j=i;j<m_array->count();j++)
         {
-            if(array[j]>array[i])
+            if(m_array->at(j)>m_array->at(i))
             {
-                int temp=array[j];
-                array[j]=array[i];
-                array[i]=temp;
+               m_array->swap(i,j);
             }
         }
     }

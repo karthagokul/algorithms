@@ -6,7 +6,12 @@
 class LinearSort : public BaseSort
 {
 public:
-    LinearSort();
+    LinearSort(Array *aArray):
+        BaseSort(aArray)
+    {
+
+    }
+
     bool sort();
 };
 

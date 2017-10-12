@@ -1,18 +1,20 @@
 #ifndef BASESORT_H
 #define BASESORT_H
 
+#include <QObject>
+#include "array.h"
 
-
-class BaseSort
+class BaseSort:public QObject
 {
+    Q_OBJECT
 public:
-    BaseSort();
-    virtual bool sort(){};
+    BaseSort(Array *mArray);
+    Q_INVOKABLE virtual bool sort(){return true;}
     void print();
 
+
 protected:
-    const int count=10;
-    static int array[];
+    Array *m_array;
 };
 
 #endif // BASESORT_H

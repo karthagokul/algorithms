@@ -9,7 +9,8 @@ QML_IMPORT_PATH =
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
     basesort.cpp \
-    linearsort.cpp
+    linearsort.cpp \
+    array.cpp
 
 # Installation path
 # target.path =
@@ -20,4 +21,5 @@ qtcAddDeployment()
 
 HEADERS += \
     basesort.h \
-    linearsort.h
+    linearsort.h \
+    array.h

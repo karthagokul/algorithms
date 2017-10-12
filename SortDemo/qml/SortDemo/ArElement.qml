@@ -11,7 +11,7 @@ Rectangle {
         font.pixelSize: 12;
         onTextChanged:
         {
-            console.log("Text Changed");
+            //console.log("Text Changed");
             animateColor.start();
             animateSize.start();
         }
