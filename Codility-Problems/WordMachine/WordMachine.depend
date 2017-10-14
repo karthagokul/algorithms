@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1507927712 source:d:\workspace\wordmachine\main.cpp
+	<iostream>
+	<sstream>
+	<vector>
+	<stack>
+	<sstream>
+	<vector>
+	<stack>
+
