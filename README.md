@@ -1,4 +1,4 @@
 algorithms
 ==========
 
-Implementation of various algorithms in C++
+Implementation of Various algorithms & Common Problems in C++
