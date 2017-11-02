@@ -3,7 +3,7 @@
 # include <algorithm>
 # include <vector>
 # include <list>
-
+#include <random>
 #include <iomanip>
 
 
@@ -35,8 +35,29 @@ public:
     }
     ~BST()
     {
-        if(root)
-            delete root;
+        deleteNode(root);
+    }
+
+    Node * deleteNode(Node *node)
+    {
+        if(node==0)
+        {
+            return 0;
+        }
+        //std::cout<<std::endl<<"Deleting "<<node->data;
+        Node *left=node->left;
+        Node *right=node->right;
+        if(left!=0)
+        {
+            deleteNode(left);
+        }
+        if(right!=0)
+        {
+            deleteNode(right);
+        }
+        delete node;
+        node=0;
+        return 0;
     }
 
     Node* insert(Node *node,int value)
@@ -76,7 +97,7 @@ public:
     {
         if(p != NULL) {
             if(p->right) {
-                postorder(p->right, indent+4);
+                postorder(p->right, indent+2);
             }
             if (indent) {
                 std::cout << std::setw(indent) << ' ';
@@ -85,7 +106,7 @@ public:
             std::cout<< p->data << "\n ";
             if(p->left) {
                 std::cout << std::setw(indent) << ' ' <<" \\\n";
-                postorder(p->left, indent+4);
+                postorder(p->left, indent+2);
             }
         }
     }
@@ -94,18 +115,20 @@ public:
 
 int main()
 {
-    BST *mytree=new BST(2);
-    mytree->insert(mytree->getRoot(),1);
-    mytree->insert(mytree->getRoot(),3);
-    mytree->insert(mytree->getRoot(),7);
-    mytree->insert(mytree->getRoot(),10);
-    mytree->insert(mytree->getRoot(),2);
-    mytree->insert(mytree->getRoot(),5);
-    mytree->insert(mytree->getRoot(),8);
-    mytree->insert(mytree->getRoot(),6);
-    mytree->insert(mytree->getRoot(),4);
+    //generating Random Number
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_real_distribution<double> dist(2.0, 20.0);
+
+    BST *mytree=new BST(1);
+    for(int i=0;i<5;i++)
+    {
+        mytree->insert(mytree->getRoot(),dist(mt) );
+    }
 
     mytree->print();
-   // delete mytree;
+
+    delete mytree;
+    std::cout<<std::endl;
     return 0;
 }
