@@ -14,13 +14,15 @@ private:
     list<HashEntry*> entries;
     int hashMe(string key)
     {
-        return key.size();
+        size_t h(0);
+        for (int i=0; i<key.length(); i++)
+           h = (h << 6) ^ (h >> 26) ^ key[i];
+        return h;
     }
 
 public:
-    HashTable(int size)
+    HashTable()
     {
-        entries.resize(20);
     }
 
     void put(string key,int value)
@@ -29,9 +31,10 @@ public:
         entry->key=key;
         entry->value=value;
         int position=hashMe(key);
+        std::cout<<key<<" , Position is "<<position<<std::endl;
         auto it=entries.begin();
         for(int i=0;i<position;i++) ++it;
-        entries.insert(it,entry);
+            entries.insert(it,entry);
     }
     void print()
     {
@@ -44,7 +47,7 @@ public:
 
 int main()
 {
-    HashTable hTable(20);
+    HashTable hTable;
     hTable.put("On",1);
     hTable.put("Two",2);
     hTable.put("Four",4);
