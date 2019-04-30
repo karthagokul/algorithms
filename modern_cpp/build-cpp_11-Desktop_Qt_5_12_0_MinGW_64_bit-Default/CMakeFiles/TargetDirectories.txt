@@ -1,0 +1,4 @@
+C:/Users/gokul.kartha/Desktop/algorithms/modern_cpp/build-cpp_11-Desktop_Qt_5_12_0_MinGW_64_bit-Default/CMakeFiles/cpp_11_smart_pointers.dir
+C:/Users/gokul.kartha/Desktop/algorithms/modern_cpp/build-cpp_11-Desktop_Qt_5_12_0_MinGW_64_bit-Default/CMakeFiles/cpp_11_async.dir
+C:/Users/gokul.kartha/Desktop/algorithms/modern_cpp/build-cpp_11-Desktop_Qt_5_12_0_MinGW_64_bit-Default/CMakeFiles/edit_cache.dir
+C:/Users/gokul.kartha/Desktop/algorithms/modern_cpp/build-cpp_11-Desktop_Qt_5_12_0_MinGW_64_bit-Default/CMakeFiles/rebuild_cache.dir
